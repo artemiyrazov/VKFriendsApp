@@ -1,9 +1,10 @@
 //
-//	AppDelegate.swift
-// 	VKFriendsApp
+//    AppDelegate.swift
+//     VKFriendsApp
 //
 
 import UIKit
+import VKSdkFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
 
     // MARK: UISceneSession Lifecycle
 
@@ -29,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    // MARK: - Open URL
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
+        return true
+    }
 
 }
-
