@@ -66,16 +66,10 @@
 		BA602D2A24351472008406C5 /* VKFriendsApp */ = {
 			isa = PBXGroup;
 			children = (
-				BA602D2B24351472008406C5 /* AppDelegate.swift */,
-				BA602D2D24351472008406C5 /* SceneDelegate.swift */,
-				BA602D4924351DC2008406C5 /* AuthService.swift */,
-				BA602D2F24351472008406C5 /* AuthViewController.swift */,
-				BA602D3124351472008406C5 /* Auth.storyboard */,
-				BA602D3424351475008406C5 /* Assets.xcassets */,
-				BA602D3624351475008406C5 /* LaunchScreen.storyboard */,
-				BA602D3924351475008406C5 /* Info.plist */,
-				BA602D4B2435394D008406C5 /* FriendsViewController.swift */,
-				BA602D4D24353957008406C5 /* Friends.storyboard */,
+				BA602D5A24353CA7008406C5 /* Friends */,
+				BA602D4F24353B53008406C5 /* Application */,
+				BA602D5424353BC3008406C5 /* Auth */,
+				BA602D5924353C9E008406C5 /* SupportingFiles */,
 			);
 			path = VKFriendsApp;
 			sourceTree = "<group>";
@@ -86,6 +80,132 @@
 				BA602D40243517FC008406C5 /* VKSdkFramework.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA602D4F24353B53008406C5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D5224353B74008406C5 /* Model */,
+				BA602D5124353B6D008406C5 /* View */,
+				BA602D5024353B66008406C5 /* Controller */,
+				BA602D5324353B9C008406C5 /* NetworkService */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BA602D5024353B66008406C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D2B24351472008406C5 /* AppDelegate.swift */,
+				BA602D2D24351472008406C5 /* SceneDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BA602D5124353B6D008406C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D3624351475008406C5 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA602D5224353B74008406C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA602D5324353B9C008406C5 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		BA602D5424353BC3008406C5 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D5824353BE4008406C5 /* Model */,
+				BA602D5724353BDF008406C5 /* View */,
+				BA602D5624353BDB008406C5 /* Controller */,
+				BA602D5524353BCF008406C5 /* AuthService */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BA602D5524353BCF008406C5 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D4924351DC2008406C5 /* AuthService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		BA602D5624353BDB008406C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D2F24351472008406C5 /* AuthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BA602D5724353BDF008406C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D3124351472008406C5 /* Auth.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA602D5824353BE4008406C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA602D5924353C9E008406C5 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D3424351475008406C5 /* Assets.xcassets */,
+				BA602D3924351475008406C5 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		BA602D5A24353CA7008406C5 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D5E24353CC2008406C5 /* Model */,
+				BA602D5D24353CBB008406C5 /* View */,
+				BA602D5B24353CAE008406C5 /* Controller */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		BA602D5B24353CAE008406C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D4B2435394D008406C5 /* FriendsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BA602D5D24353CBB008406C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D4D24353957008406C5 /* Friends.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA602D5E24353CC2008406C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +456,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = VKFriendsApp/Info.plist;
+				INFOPLIST_FILE = VKFriendsApp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,7 +478,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = VKFriendsApp/Info.plist;
+				INFOPLIST_FILE = VKFriendsApp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
