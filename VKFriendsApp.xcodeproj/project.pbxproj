@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		BA602D2C24351472008406C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D2B24351472008406C5 /* AppDelegate.swift */; };
 		BA602D2E24351472008406C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D2D24351472008406C5 /* SceneDelegate.swift */; };
-		BA602D3024351472008406C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D2F24351472008406C5 /* ViewController.swift */; };
-		BA602D3324351472008406C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA602D3124351472008406C5 /* Main.storyboard */; };
+		BA602D3024351472008406C5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D2F24351472008406C5 /* AuthViewController.swift */; };
+		BA602D3324351472008406C5 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA602D3124351472008406C5 /* Auth.storyboard */; };
 		BA602D3524351475008406C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA602D3424351475008406C5 /* Assets.xcassets */; };
 		BA602D3824351475008406C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA602D3624351475008406C5 /* LaunchScreen.storyboard */; };
 		BA602D41243517FC008406C5 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA602D40243517FC008406C5 /* VKSdkFramework.framework */; };
 		BA602D4A24351DC2008406C5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D4924351DC2008406C5 /* AuthService.swift */; };
+		BA602D4C2435394D008406C5 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D4B2435394D008406C5 /* FriendsViewController.swift */; };
+		BA602D4E24353957008406C5 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA602D4D24353957008406C5 /* Friends.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BA602D2824351472008406C5 /* VKFriendsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFriendsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA602D2B24351472008406C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA602D2D24351472008406C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA602D2F24351472008406C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BA602D3224351472008406C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA602D2F24351472008406C5 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		BA602D3224351472008406C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		BA602D3424351475008406C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA602D3724351475008406C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA602D3924351475008406C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA602D40243517FC008406C5 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		BA602D4924351DC2008406C5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		BA602D4B2435394D008406C5 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		BA602D4D24353957008406C5 /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +68,14 @@
 			children = (
 				BA602D2B24351472008406C5 /* AppDelegate.swift */,
 				BA602D2D24351472008406C5 /* SceneDelegate.swift */,
-				BA602D2F24351472008406C5 /* ViewController.swift */,
-				BA602D3124351472008406C5 /* Main.storyboard */,
+				BA602D4924351DC2008406C5 /* AuthService.swift */,
+				BA602D2F24351472008406C5 /* AuthViewController.swift */,
+				BA602D3124351472008406C5 /* Auth.storyboard */,
 				BA602D3424351475008406C5 /* Assets.xcassets */,
 				BA602D3624351475008406C5 /* LaunchScreen.storyboard */,
 				BA602D3924351475008406C5 /* Info.plist */,
-				BA602D4924351DC2008406C5 /* AuthService.swift */,
+				BA602D4B2435394D008406C5 /* FriendsViewController.swift */,
+				BA602D4D24353957008406C5 /* Friends.storyboard */,
 			);
 			path = VKFriendsApp;
 			sourceTree = "<group>";
@@ -141,9 +147,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA602D4E24353957008406C5 /* Friends.storyboard in Resources */,
 				BA602D3824351475008406C5 /* LaunchScreen.storyboard in Resources */,
 				BA602D3524351475008406C5 /* Assets.xcassets in Resources */,
-				BA602D3324351472008406C5 /* Main.storyboard in Resources */,
+				BA602D3324351472008406C5 /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +182,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA602D3024351472008406C5 /* ViewController.swift in Sources */,
+				BA602D3024351472008406C5 /* AuthViewController.swift in Sources */,
+				BA602D4C2435394D008406C5 /* FriendsViewController.swift in Sources */,
 				BA602D2C24351472008406C5 /* AppDelegate.swift in Sources */,
 				BA602D2E24351472008406C5 /* SceneDelegate.swift in Sources */,
 				BA602D4A24351DC2008406C5 /* AuthService.swift in Sources */,
@@ -185,12 +193,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BA602D3124351472008406C5 /* Main.storyboard */ = {
+		BA602D3124351472008406C5 /* Auth.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BA602D3224351472008406C5 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Auth.storyboard;
 			sourceTree = "<group>";
 		};
 		BA602D3624351475008406C5 /* LaunchScreen.storyboard */ = {

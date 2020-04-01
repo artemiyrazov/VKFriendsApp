@@ -6,16 +6,29 @@
 import UIKit
 import VKSdkFramework
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
 
     var window: UIWindow?
-
+    var authService: AuthService!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        authService = AuthService()
+        authService.delegate = self
+        let authVC = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController() as? AuthViewController
+        window?.rootViewController = authVC
+        window?.makeKeyAndVisible()
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,15 +58,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+
+    //  MARK: - AuthServiceDelegate
     
-    // MARK: - Open URL
+    func authServiceShouldShow(viewController: UIViewController) {
+        print(#function)
+        window?.rootViewController?.present(viewController, animated: true, completion: nil)
+    }
     
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
-            VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
-        }
+    func authServiceSignIn() {        
+        let friendsVC = UIStoryboard(name: "Friends", bundle: nil).instantiateInitialViewController() as! FriendsViewController
+        let navigationVC = UINavigationController(rootViewController: friendsVC)
+        window?.rootViewController = navigationVC
+    }
+    
+    func authServiceSignInDidFail() {
     }
 
-
+    
+    //  MARK: - Singleton pattern for SceneDelegate
+    
+    static func shared() -> SceneDelegate {
+        
+        let scene = UIApplication.shared.connectedScenes.first
+        let sceneDelegate: SceneDelegate = ((scene?.delegate as? SceneDelegate)!)
+        return sceneDelegate
+    }
 }
 
