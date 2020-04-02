@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fnv-er-37h">
-                                <rect key="frame" x="15.666666666666657" y="151" width="344" height="520"/>
+                                <rect key="frame" x="15.666666666666657" y="106" width="344" height="610"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Five random friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgG-iX-7yU">
                                         <rect key="frame" x="46.333333333333343" y="0.0" width="251.00000000000003" height="30"/>
@@ -107,14 +107,30 @@
                                             <outlet property="delegate" destination="rIc-CC-qfP" id="Gyo-tN-dZx"/>
                                         </connections>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vm-9F-dKp">
+                                        <rect key="frame" x="147" y="560" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Vst-Up-1dJ"/>
+                                            <constraint firstAttribute="width" constant="50" id="kzN-3I-oPI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" name="CustomBackgroundColorReversed"/>
+                                        <state key="normal" image="arrow.counterclockwise.circle.fill" catalog="system">
+                                            <color key="titleColor" name="CustomBackgroundColorReversed"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reloadButtonPressed:" destination="rIc-CC-qfP" eventType="touchUpInside" id="Bhq-dn-Qu6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="CustomBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fnv-er-37h" firstAttribute="centerY" secondItem="M9D-UL-ppq" secondAttribute="centerY" id="1hK-Cx-iva"/>
                             <constraint firstItem="fnv-er-37h" firstAttribute="centerX" secondItem="M9D-UL-ppq" secondAttribute="centerX" id="3aC-cg-lSb"/>
                             <constraint firstItem="fnv-er-37h" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M9D-UL-ppq" secondAttribute="top" constant="20" id="h8f-jL-gq7"/>
-                            <constraint firstItem="fnv-er-37h" firstAttribute="centerY" secondItem="M9D-UL-ppq" secondAttribute="centerY" id="yAu-yt-J1K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M9D-UL-ppq"/>
                     </view>
@@ -124,12 +140,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffq-bT-neq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="64.955357142857139"/>
+            <point key="canvasLocation" x="136.80000000000001" y="64.285714285714292"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="CustomBackgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomBackgroundColorReversed">
+            <color red="0.26100000739097595" green="0.26100000739097595" blue="0.26100000739097595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CustomTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

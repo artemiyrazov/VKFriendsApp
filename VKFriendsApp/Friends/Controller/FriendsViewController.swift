@@ -13,7 +13,10 @@ class FriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        loadFriends()
+    }
+    
+    func loadFriends () {
         FriendsNetworkService.getFriends { [weak self] friendsResponse in
             guard   let self = self,
                     let friendsResponse = friendsResponse else { return }
@@ -22,6 +25,13 @@ class FriendsViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @IBAction func reloadButtonPressed(_ sender: Any) {
+        friends.removeAll()
+        tableView.reloadData()
+        loadFriends()
+    }
+    
 }
 
 
@@ -40,7 +50,9 @@ extension FriendsViewController: UITableViewDataSource {
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    
 }

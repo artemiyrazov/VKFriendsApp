@@ -11,7 +11,7 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    
+        
     
     func configure (friend: FriendItem) {
         firstNameLabel.text = friend.firstName
