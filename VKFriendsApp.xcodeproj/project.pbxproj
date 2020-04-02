@@ -148,7 +148,6 @@
 		BA602D5424353BC3008406C5 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				BA602D5824353BE4008406C5 /* Model */,
 				BA602D5724353BDF008406C5 /* View */,
 				BA602D5624353BDB008406C5 /* Controller */,
 				BA602D5524353BCF008406C5 /* Service */,
@@ -178,13 +177,6 @@
 				BA602D3124351472008406C5 /* Auth.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BA602D5824353BE4008406C5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		BA602D5924353C9E008406C5 /* SupportingFiles */ = {

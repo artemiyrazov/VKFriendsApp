@@ -60,8 +60,12 @@ class FriendsViewController: UIViewController {
                                             message: "You will need to log in again",
                                             preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        actionSheet.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [weak self] (UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel))
+        
+        actionSheet.addAction(UIAlertAction(title: "Yes",
+                                            style: .destructive,
+                                            handler: { [weak self] (UIAlertAction) in
             guard let self = self else { return }
             self.friendsService.delegate?.vkLogout()
         }))
