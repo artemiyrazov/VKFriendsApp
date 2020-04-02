@@ -17,6 +17,10 @@
 		BA602D4A24351DC2008406C5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D4924351DC2008406C5 /* AuthService.swift */; };
 		BA602D4C2435394D008406C5 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D4B2435394D008406C5 /* FriendsViewController.swift */; };
 		BA602D4E24353957008406C5 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA602D4D24353957008406C5 /* Friends.storyboard */; };
+		BA602D6024353D65008406C5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D5F24353D65008406C5 /* API.swift */; };
+		BA602D6224353D9E008406C5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D6124353D9E008406C5 /* NetworkService.swift */; };
+		BA602D6524353F33008406C5 /* FriendsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D6424353F33008406C5 /* FriendsNetworkService.swift */; };
+		BA602D6924354826008406C5 /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D6824354826008406C5 /* FriendsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		BA602D4924351DC2008406C5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		BA602D4B2435394D008406C5 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		BA602D4D24353957008406C5 /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		BA602D5F24353D65008406C5 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BA602D6124353D9E008406C5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BA602D6424353F33008406C5 /* FriendsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetworkService.swift; sourceTree = "<group>"; };
+		BA602D6824354826008406C5 /* FriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +74,8 @@
 		BA602D2A24351472008406C5 /* VKFriendsApp */ = {
 			isa = PBXGroup;
 			children = (
-				BA602D5A24353CA7008406C5 /* Friends */,
 				BA602D4F24353B53008406C5 /* Application */,
+				BA602D5A24353CA7008406C5 /* Friends */,
 				BA602D5424353BC3008406C5 /* Auth */,
 				BA602D5924353C9E008406C5 /* SupportingFiles */,
 			);
@@ -113,6 +121,7 @@
 		BA602D5224353B74008406C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BA602D5F24353D65008406C5 /* API.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 		BA602D5324353B9C008406C5 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				BA602D6124353D9E008406C5 /* NetworkService.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -181,6 +191,7 @@
 				BA602D5E24353CC2008406C5 /* Model */,
 				BA602D5D24353CBB008406C5 /* View */,
 				BA602D5B24353CAE008406C5 /* Controller */,
+				BA602D6324353F19008406C5 /* FriendsNetworkService */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -204,8 +215,17 @@
 		BA602D5E24353CC2008406C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BA602D6824354826008406C5 /* FriendsResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA602D6324353F19008406C5 /* FriendsNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				BA602D6424353F33008406C5 /* FriendsNetworkService.swift */,
+			);
+			path = FriendsNetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,8 +325,12 @@
 				BA602D3024351472008406C5 /* AuthViewController.swift in Sources */,
 				BA602D4C2435394D008406C5 /* FriendsViewController.swift in Sources */,
 				BA602D2C24351472008406C5 /* AppDelegate.swift in Sources */,
+				BA602D6924354826008406C5 /* FriendsResponse.swift in Sources */,
 				BA602D2E24351472008406C5 /* SceneDelegate.swift in Sources */,
+				BA602D6524353F33008406C5 /* FriendsNetworkService.swift in Sources */,
+				BA602D6024353D65008406C5 /* API.swift in Sources */,
 				BA602D4A24351DC2008406C5 /* AuthService.swift in Sources */,
+				BA602D6224353D9E008406C5 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
