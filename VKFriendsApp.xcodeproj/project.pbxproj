@@ -23,6 +23,9 @@
 		BA602D6924354826008406C5 /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D6824354826008406C5 /* FriendsResponse.swift */; };
 		BA602D7124361305008406C5 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA602D7024361305008406C5 /* FriendCell.swift */; };
 		BAB3DF5B24366C0A002222AA /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB3DF5A24366C0A002222AA /* AccountResponse.swift */; };
+		BAB3DF5D243686D4002222AA /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB3DF5C243686D4002222AA /* FriendsService.swift */; };
+		BAB3DF602436888A002222AA /* FriendsViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB3DF5F2436888A002222AA /* FriendsViewControllerExtensions.swift */; };
+		BAB3DF6224368FD0002222AA /* InternetConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB3DF6124368FD0002222AA /* InternetConnectionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		BA602D6824354826008406C5 /* FriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
 		BA602D7024361305008406C5 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		BAB3DF5A24366C0A002222AA /* AccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
+		BAB3DF5C243686D4002222AA /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
+		BAB3DF5F2436888A002222AA /* FriendsViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewControllerExtensions.swift; sourceTree = "<group>"; };
+		BAB3DF6124368FD0002222AA /* InternetConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,7 @@
 				BA602D5224353B74008406C5 /* Model */,
 				BA602D5124353B6D008406C5 /* View */,
 				BA602D5024353B66008406C5 /* Controller */,
-				BA602D5324353B9C008406C5 /* NetworkService */,
+				BA602D5324353B9C008406C5 /* Service */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -130,12 +136,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BA602D5324353B9C008406C5 /* NetworkService */ = {
+		BA602D5324353B9C008406C5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				BA602D6124353D9E008406C5 /* NetworkService.swift */,
+				BAB3DF6124368FD0002222AA /* InternetConnectionManager.swift */,
 			);
-			path = NetworkService;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BA602D5424353BC3008406C5 /* Auth */ = {
@@ -144,17 +151,17 @@
 				BA602D5824353BE4008406C5 /* Model */,
 				BA602D5724353BDF008406C5 /* View */,
 				BA602D5624353BDB008406C5 /* Controller */,
-				BA602D5524353BCF008406C5 /* AuthService */,
+				BA602D5524353BCF008406C5 /* Service */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		BA602D5524353BCF008406C5 /* AuthService */ = {
+		BA602D5524353BCF008406C5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				BA602D4924351DC2008406C5 /* AuthService.swift */,
 			);
-			path = AuthService;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BA602D5624353BDB008406C5 /* Controller */ = {
@@ -195,7 +202,7 @@
 				BA602D5E24353CC2008406C5 /* Model */,
 				BA602D5D24353CBB008406C5 /* View */,
 				BA602D5B24353CAE008406C5 /* Controller */,
-				BA602D6324353F19008406C5 /* FriendsNetworkService */,
+				BA602D6324353F19008406C5 /* Service */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				BA602D4B2435394D008406C5 /* FriendsViewController.swift */,
+				BAB3DF5F2436888A002222AA /* FriendsViewControllerExtensions.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,12 +234,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BA602D6324353F19008406C5 /* FriendsNetworkService */ = {
+		BA602D6324353F19008406C5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				BA602D6424353F33008406C5 /* FriendsNetworkService.swift */,
+				BAB3DF5C243686D4002222AA /* FriendsService.swift */,
 			);
-			path = FriendsNetworkService;
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,9 +344,12 @@
 				BAB3DF5B24366C0A002222AA /* AccountResponse.swift in Sources */,
 				BA602D2E24351472008406C5 /* SceneDelegate.swift in Sources */,
 				BA602D6524353F33008406C5 /* FriendsNetworkService.swift in Sources */,
+				BAB3DF5D243686D4002222AA /* FriendsService.swift in Sources */,
 				BA602D6024353D65008406C5 /* API.swift in Sources */,
 				BA602D4A24351DC2008406C5 /* AuthService.swift in Sources */,
 				BA602D6224353D9E008406C5 /* NetworkService.swift in Sources */,
+				BAB3DF602436888A002222AA /* FriendsViewControllerExtensions.swift in Sources */,
+				BAB3DF6224368FD0002222AA /* InternetConnectionManager.swift in Sources */,
 				BA602D7124361305008406C5 /* FriendCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +501,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = VKFriendsApp/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,6 +524,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = VKFriendsApp/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

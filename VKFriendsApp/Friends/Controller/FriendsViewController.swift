@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import VKSdkFramework
 
 class FriendsViewController: UIViewController {
         
@@ -11,9 +12,11 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var userFirstNameLabel: UILabel!
     @IBOutlet weak var userLastNameLabel: UILabel!
     var friends = [FriendItem]()
+    private var friendsService: FriendsService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        friendsService = SceneDelegate.shared().friendsService
 
         FriendsNetworkService.getAccount { [weak self] accountResponse in
             guard   let self = self,
@@ -36,33 +39,33 @@ class FriendsViewController: UIViewController {
     }
     
     @IBAction func reloadButtonPressed(_ sender: Any) {
-        friends.removeAll()
-        tableView.reloadData()
-        loadFriends()
+        if InternetConnectionManager.isConnectedToNetwork() {
+            friends.removeAll()
+            tableView.reloadData()
+            loadFriends()
+        } else {
+            let alert = UIAlertController(title: "No internet connection",
+                                          message: "Please, connect to the network to continue",
+                                          preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
-}
-
-
-
-extension FriendsViewController: UITableViewDelegate {}
-
-extension FriendsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: "Are you sure?",
+                                            message: "You will need to log in again",
+                                            preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        actionSheet.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [weak self] (UIAlertAction) in
+            guard let self = self else { return }
+            self.friendsService.delegate?.vkLogout()
+        }))
+        self.present(actionSheet, animated: true, completion: nil)
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FriendCell
-        let friend = friends[indexPath.row]
-        cell.configure(friend: friend)
-        return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
-    
 }
 

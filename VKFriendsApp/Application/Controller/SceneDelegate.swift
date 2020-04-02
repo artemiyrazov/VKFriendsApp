@@ -6,10 +6,11 @@
 import UIKit
 import VKSdkFramework
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate, FriendsServiceDelegate {
 
     var window: UIWindow?
     var authService: AuthService!
+    var friendsService: FriendsService!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -20,9 +21,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         window?.windowScene = windowScene
         authService = AuthService()
         authService.delegate = self
-        let authVC = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController() as? AuthViewController
-        window?.rootViewController = authVC
-        window?.makeKeyAndVisible()
+        
+        VKSdk.wakeUpSession(["offline"]) { [weak self] (state, error) in
+            guard let self = self else { return }
+            switch state {
+            case .authorized:
+                self.authServiceSignIn()
+                self.window?.makeKeyAndVisible()
+            default:
+                let authVC = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController() as? AuthViewController
+                self.window?.rootViewController = authVC
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        friendsService = FriendsService()
+        friendsService.delegate = self
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -58,8 +71,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    //  MARK:   -   FriendsViewControllerDelegate
+    
+    func vkLogout() {
+        VKSdk.forceLogout()
+        let authVC = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController() as? AuthViewController
+        window?.rootViewController = authVC
+    }
 
-    //  MARK: - AuthServiceDelegate
+    //  MARK:   -   AuthServiceDelegate
     
     func authServiceShouldShow(viewController: UIViewController) {
         window?.rootViewController?.present(viewController, animated: true, completion: nil)
@@ -74,7 +95,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     }
 
     
-    //  MARK: - Singleton pattern for SceneDelegate
+    //  MARK:   -   Singleton pattern for SceneDelegate
     
     static func shared() -> SceneDelegate {
         

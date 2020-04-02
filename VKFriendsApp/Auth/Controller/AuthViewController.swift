@@ -16,7 +16,19 @@ class AuthViewController: UIViewController {
     }
 
     @IBAction func signInButtonPressed(_ sender: Any) {
-        authService.wakeUpSession()
+        
+        if InternetConnectionManager.isConnectedToNetwork() {
+            authService.wakeUpSession()
+        } else {
+            let alert = UIAlertController(title: "No internet connection",
+                                          message: "Please, connect to the network to continue",
+                                          preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
 }
