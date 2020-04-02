@@ -5,22 +5,16 @@
 
 import Foundation
 
-struct FriendsNetworkService {
-    
-    let networking: Networking
-    
-    init(networking: Networking) {
-        self.networking = networking
-    }
-    
-    func getFriends(response: @escaping (FriendsResponse?)->()) {
+class FriendsNetworkService {
+        
+    static func getFriends(response: @escaping (FriendsResponse?)->()) {
         
         let parameters = ["order" : "random",
                           "count" : "5",
                           "fields" : "photo_100"]
         let path = "/method/friends.get"
         
-        networking.request(path: path, parameters: parameters) { (data, error) in
+        NetworkService().request(path: path, parameters: parameters) { (data, error) in
             if let error = error {
                 print("Error recieved requesting data: \(error.localizedDescription)")
             }
@@ -30,7 +24,18 @@ struct FriendsNetworkService {
         }
     }
     
-    private func decodeJSON<T: Decodable>(type: T.Type, data: Data?) -> T? {
+    static func getPhoto (url: String, response: @escaping (Data)->()) {
+        let url = URL(string: url)
+
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url!) else { return }
+            response(data)
+        }
+    }
+    
+    
+    
+    static private func decodeJSON<T: Decodable>(type: T.Type, data: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let data = data, let response = try? decoder.decode(type.self, from: data) else { return nil }

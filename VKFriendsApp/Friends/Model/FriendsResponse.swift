@@ -10,7 +10,6 @@ struct FriendsResponseWrapped: Decodable {
 }
 
 struct FriendsResponse: Decodable {
-    let count: Int
     let items: [FriendItem]
 }
 
