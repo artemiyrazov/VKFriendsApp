@@ -24,6 +24,20 @@ class FriendsNetworkService {
         }
     }
     
+    static func getAccount (response: @escaping (AccountResponse?)->()) {
+        
+        let path = "/method/account.getProfileInfo"
+        
+        NetworkService().request(path: path, parameters: nil) { (data, error) in
+            if let error = error {
+                print("Error recieved requesting data: \(error.localizedDescription)")
+            }
+            
+            let decoded = self.decodeJSON(type: AccountResponseWrapped.self, data: data)
+            response(decoded?.response)
+        }
+    }
+    
     static func getPhoto (url: String, response: @escaping (Data)->()) {
         let url = URL(string: url)
 

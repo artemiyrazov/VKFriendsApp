@@ -8,11 +8,20 @@ import UIKit
 class FriendsViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var userFirstNameLabel: UILabel!
+    @IBOutlet weak var userLastNameLabel: UILabel!
     var friends = [FriendItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        FriendsNetworkService.getAccount { [weak self] accountResponse in
+            guard   let self = self,
+                    let accountResponse = accountResponse else { return }
+            self.userFirstNameLabel.text = accountResponse.firstName
+            self.userLastNameLabel.text = accountResponse.lastName
+            
+        }
         loadFriends()
     }
     
@@ -56,3 +65,4 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
 }
+

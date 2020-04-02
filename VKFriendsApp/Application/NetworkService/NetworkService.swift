@@ -6,7 +6,7 @@
 import Foundation
 
 protocol Networking {
-    func request(path: String, parameters: [String: String], completion: @escaping (Data?, Error?) -> Void)
+    func request(path: String, parameters: [String: String]?, completion: @escaping (Data?, Error?) -> Void)
 }
 
 final class NetworkService: Networking {
@@ -17,10 +17,13 @@ final class NetworkService: Networking {
         self.authService = SceneDelegate.shared().authService
     }
 
-    func request(path: String, parameters: [String : String], completion: @escaping(Data?, Error?) -> Void) {
-    
+    func request(path: String, parameters: [String : String]?, completion: @escaping(Data?, Error?) -> Void) {
+        
         guard let token = authService.token else { return }
-        var allParameters = parameters
+        var allParameters = [String: String]()
+        if let parameters = parameters {
+            allParameters = parameters
+        }
         allParameters["access_token"] = token
         allParameters["v"] = API.version
         

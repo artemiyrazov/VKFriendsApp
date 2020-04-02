@@ -67,8 +67,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     
     func authServiceSignIn() {        
         let friendsVC = UIStoryboard(name: "Friends", bundle: nil).instantiateInitialViewController() as! FriendsViewController
-        let navigationVC = UINavigationController(rootViewController: friendsVC)
-        window?.rootViewController = navigationVC
+        window?.rootViewController = friendsVC
     }
     
     func authServiceSignInDidFail() {
